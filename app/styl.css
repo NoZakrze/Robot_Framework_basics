@@ -1,0 +1,279 @@
+html
+{
+    width: 100vw;
+    background-color: rgb(142, 142, 19); 
+}
+body
+{
+    margin-left: 10vw;
+    margin-right: 10vw;   
+}
+header
+{
+    background-color: darkkhaki;
+    height: 20vh;
+}
+header h1
+{
+    height: 7vh;
+    font-size: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+header h2
+{   
+    height: 3.5vh;
+    font-size: 3vh;
+    display: flex;
+    justify-content: center;
+}
+header nav
+{   
+    height: 4vh;
+    background-color: goldenrod;
+    font-size: 2.5vh;
+    border: solid black 1px;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;    
+}
+header a
+{
+    color: black;
+    text-decoration: none;
+}
+.drop
+{
+    position: relative;
+}
+.drop ul
+{   
+    width: 9vh;
+    position: absolute;
+    list-style-type: none;
+    background: goldenrod ;
+    margin-top: 1vh;
+    font-size: 1.3vh;
+    border: solid black 1px;
+    display: none;  
+}
+.drop ul li
+{
+    padding: 0.5vh;
+}
+.drop a:focus + ul,
+.drop ul:hover
+{   
+  display: block;
+}
+main
+{   
+    background-color: darkkhaki;   
+}
+main h1
+{
+    text-align: center;
+    font-size: 4vh;
+}
+main p
+{
+     text-align: center;
+     font-size: 2vh;
+     margin-left: 10vw;
+     margin-right: 10vw;    
+}
+footer
+{
+    background-color: goldenrod;
+    border: solid black 1px;
+    padding: 1vh;
+}
+form
+{
+    margin-top: 1.3vw;
+    font-size: 2vh;
+    margin-left: 2vh;  
+}
+legend
+{
+    font-size: 3vh;
+}
+#galery
+{   
+    margin-top: 1.3vw;
+    height: 60vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;   
+}
+#galery img:hover
+{
+    transform: scale(1.5,1.5);
+    transition: 2s;
+}
+figure
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 2vh;
+    height: 7vh;
+    width: 7vw;
+}
+#wector
+{
+    display: flex;
+    flex-direction: column;
+}
+#key
+{  
+    width: 5vw;
+    height: 5vh; 
+    position: relative;
+    animation-name: ani;
+    animation-duration: 3s;
+    margin-left: 13vw;
+     background-color: darkkhaki;
+}
+@keyframes ani {
+    0%   { background-color: blue;}
+    100%  { background-color: green;}
+  }
+.active
+{
+    color: rgb(161, 43, 4);
+}
+.tekstlewy
+{
+    font-size: 2vh;
+     margin-left: 10vw;
+     margin-right: 10vw;
+     text-align: left;
+}
+table, tr, td, th
+{
+    border: solid black 1px;
+    text-align: center;
+}
+ul a
+{
+ color: black;
+}
+main h2
+{
+    font-size: 3vh;
+    text-align: center;
+}
+.gora
+{
+    padding-top: 2.5vh;
+}
+.glowna
+{
+    height: 85vh;
+}
+.gotop
+{
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-size: 2vh;
+}
+.changeColors
+{  
+    font-size: 2vh;
+    margin-top: 2vh;
+     margin-left: 10vw;
+     margin-right: 10vw;
+     text-align: left;
+}
+.button
+{
+    display: block;
+    font-size: 2vh;
+    margin-top: 2vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    text-align: left;
+}
+.toggle
+{
+    display: none;
+    font-size: 2vh;
+     margin-left: 10vw;
+     margin-right: 10vw;
+     text-align: left;
+}
+.toggle_active
+{
+    display: block;
+    font-size: 2vh;
+     margin-left: 10vw;
+     margin-right: 10vw;
+     text-align: left;
+}
+@media only screen and (max-width: 1000px) 
+{   
+    #key
+    {
+        display: none;
+    }   
+    header h1
+    {
+        font-size: 3vh;
+    }
+    svg
+    {
+        display: none;
+    }
+    table
+    {
+        display: none;
+    }
+     header nav
+    {
+        position: relative;
+        display: block;
+        border: none;
+        background-color: goldenrod ;
+        margin-left: 0vw;
+        height: 13vh;
+        width: 10vw;
+        font-size: 1.7vh;
+        border: solid black 1px;
+    }
+    header a
+    {
+        display: block;
+    }
+    figure
+    {
+        height: 5vh;
+        width: 5vw;
+        display: flex;
+        text-align: left;
+        margin-top: 0px;
+        margin-bottom: 0px;
+    }
+    #galery
+    {   
+        margin-top: 1.3vw;
+        height: 70vh;
+         display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    figcaption
+    {
+        display: none;
+    }
+    #galery img:hover
+    {
+        transform: scale(4,4);
+    }
+    form
+    {
+        padding-top: 10vh;
+    }
+}

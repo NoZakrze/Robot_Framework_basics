@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="literaturaKlasyczna" type="literaturaKlasycznaType"/>
+    <xs:complexType name="literaturaKlasycznaType">
+		<xs:all>
+			<xs:element name="tworca" type="tworcaType" />
+			<xs:element name="literatura" type="literaturaType" />
+			<xs:element name="dodatkoweZrodlaWiedzy" type="dodatkoweZrodlaWiedzyType" />
+		</xs:all>
+	</xs:complexType>
+    <xs:complexType name="tworcaType">
+		<xs:sequence>
+			<xs:element name="imie" type="xs:string" /> 
+			<xs:element name="nazwisko" type="xs:string"/>  
+			<xs:element name="narodowosc" type="xs:string" />
+            <xs:element name="edukacja" minOccurs="0"  >
+				<xs:complexType>
+					<xs:choice>
+						<xs:element name="typUczelni" type="xs:string"/>
+						<xs:element name="typSzkoly" type="xs:string"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="adres" type="adresType" minOccurs="0"/>
+			<xs:element name="kod" type="kodType" minOccurs="0"/>
+		</xs:sequence>
+        <xs:attribute name="wiek" use="optional" type="xs:nonNegativeInteger"/>
+		<xs:attribute ref="plec" use="required"/>
+	</xs:complexType>
+	<xs:attribute name="plec">
+        <xs:simpleType>
+			<xs:restriction base="xs:string">
+				 <xs:pattern value="[km]"/>
+			</xs:restriction>
+		</xs:simpleType>
+    </xs:attribute>
+    <xs:complexType name="literaturaType">
+		<xs:sequence>
+			<xs:element name="ksiazki" type="ksiazkiType" />
+			<xs:element name="nurtyLiterackie" type="nurtyLiterackieType" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ksiazkiType">
+		<xs:sequence>
+			<xs:element name="ksiazka" type="ksiazkaType" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ksiazkaType">
+		<xs:sequence>
+			<xs:element name="tytul" type="xs:string" /> 
+			<xs:element name="autor">
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="tworcaType">	
+							<xs:sequence>
+								<xs:element name="zdjecie" type="xs:anyURI"/> 
+							</xs:sequence>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>  
+			<xs:element name="rokWydania" type="xs:gYear" />
+            <xs:element name="adaptacja">
+				<xs:complexType>		
+					<xs:sequence>
+						<xs:group ref="group1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element> 
+		</xs:sequence>
+		<xs:attribute name="krajPochodzenia" type="xs:string" use="required"/>
+		<xs:attribute ref="liczbaStron" use="required"/>
+		<xs:attribute name="lektura" use="required">
+            <xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="tak"/>
+					<xs:enumeration value="nie"/>
+				</xs:restriction>
+			</xs:simpleType>
+        </xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="nurtyLiterackieType">
+		<xs:sequence>
+			<xs:element name="nurt" maxOccurs="unbounded">
+				<xs:complexType>		
+					<xs:sequence>
+						<xs:element ref="nazwa"/>
+						<xs:element name="pisarz" type="xs:string" maxOccurs="unbounded"/>
+					</xs:sequence>
+					<xs:attribute name="czas" type="xs:string" use="required"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:complexType name="dodatkoweZrodlaWiedzyType">
+		<xs:sequence>
+			<xs:element name="zrodlo" maxOccurs="unbounded">
+                <xs:complexType>		
+					<xs:sequence>
+						<xs:element ref="nazwa"/>			
+						<xs:element name="typ" type="dlugiString"/> 
+					</xs:sequence>
+					<xs:attribute name="link" use="required" type="xs:anyURI"/>
+				</xs:complexType>
+            </xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="nazwa">
+		<xs:simpleType>
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+     			<xs:maxLength value="50"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+	<xs:attribute name="liczbaStron">
+        <xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="1" />
+				<xs:maxInclusive value="2000" />
+			</xs:restriction>
+		</xs:simpleType>
+    </xs:attribute>
+	<xs:group name="group1">
+		<xs:sequence>
+			<xs:element name="tytul" type="xs:string" />			
+			<xs:element name="rokPremiery" type="rokType"/>
+			<xs:element name="rezyser" type="rezyserType"/>
+			<xs:element name="rolaGlowna" type="xs:string" maxOccurs="unbounded"/> 
+		</xs:sequence>
+	</xs:group>
+	<xs:complexType name="rezyserType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute ref="plec" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="adresType">
+		<xs:union memberTypes="krotkiString krotkiString xs:positiveInteger" />
+	</xs:simpleType>
+	<xs:simpleType name="krotkiString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="dlugiString">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="200"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="kodType">
+		<xs:restriction base="xs:string">
+			 <xs:pattern value="[0-9][0-9]-[0-9][0-9][0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="rokType">
+		<xs:restriction base="xs:gYear">
+			<xs:minInclusive value="1800"/>
+      		<xs:maxInclusive value="2022"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="typZrodlaType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="seriws internetowy o ksiazkach"/>
+     		<xs:enumeration value="internetowa biblioteka"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

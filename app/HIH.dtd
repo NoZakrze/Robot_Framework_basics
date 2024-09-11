@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <!ELEMENT literaturaKlasyczna (tworca,literatura,dodatkoweZrodlaWiedzy)>
+        <!ELEMENT tworca (imie,nazwisko,narodowosc,edukacja?,adres?,kod?)>
+            <!ELEMENT imie (#PCDATA)>
+            <!ELEMENT nazwisko (#PCDATA)>
+            <!ELEMENT narodowosc (#PCDATA)>
+            <!ELEMENT edukacja (typUczelni|typSzkoly)>
+                <!ELEMENT typUczelni (#PCDATA)>
+                <!ELEMENT typSzkoly (#PCDATA)>
+            <!ELEMENT adres (#PCDATA)>
+            <!ELEMENT kod (#PCDATA)>
+        <!ELEMENT literatura (ksiazki,nurtyLiterackie)>
+            <!ELEMENT ksiazki (ksiazka+)>
+                <!ELEMENT ksiazka (tytul,autor,rokWydania,adaptacja)>
+                    <!ELEMENT tytul (#PCDATA)>
+                    <!ELEMENT autor (imie,nazwisko,narodowosc,zdjecie)>
+                        <!ELEMENT zdjecie (#PCDATA)>
+                    <!ELEMENT rokWydania (#PCDATA)>
+                    <!ELEMENT adaptacja (tytul,rokPremiery,rezyser,rolaGlowna+)>
+                        <!ELEMENT rokPremiery (#PCDATA)>
+                        <!ELEMENT rezyser (#PCDATA)>
+                        <!ELEMENT rolaGlowna (#PCDATA)> 
+            <!ELEMENT nurtyLiterackie (nurt+)>
+                <!ELEMENT nurt (nazwa,pisarz+)>
+                    <!ELEMENT nazwa (#PCDATA)>
+                    <!ELEMENT pisarz (#PCDATA)>
+        <!ELEMENT dodatkoweZrodlaWiedzy (zrodlo+)>
+            <!ELEMENT zrodlo (nazwa,typ)>
+                <!ELEMENT typ (#PCDATA)>
+
+    <!ATTLIST tworca wiek CDATA #IMPLIED>
+    <!ATTLIST tworca plec (k|m) "m">
+    <!ATTLIST autor plec (k|m) "m">
+    <!ATTLIST rezyser plec (k|m) "m">
+    <!ATTLIST ksiazka krajPochodzenia CDATA #REQUIRED>
+    <!ATTLIST ksiazka liczbaStron CDATA #REQUIRED>
+    <!ATTLIST ksiazka lektura CDATA "nie">
+    <!ATTLIST nurt czas CDATA #REQUIRED>
+    <!ATTLIST zrodlo link CDATA #REQUIRED>

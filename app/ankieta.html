@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html id="html" lang="pl-PL">
+    <head>
+        <title>Klasyki literatury światowej</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styl.css">
+        <link rel="shortcut icon" href="favicon.ico">
+    </head>
+    <body>
+        <header>
+           <h1>Klasyki literatury światowej</h1>
+           <h2>Ankieta</h2>
+           <nav>
+            
+                <a  href="index.html">Strona główna</a>
+                <div class="drop">
+                    <a href="#">Literatura</a>
+                    <ul>
+                        <li> <a  href="literatura_rosyjska.html">Literatura rosyjska</a> </li>
+                        <li> <a  href="literatura_angielska.html">Literatura angielska</a> </li>
+                        <li> <a  href="literatura_francuska.html">Literatura francuska</a></li>
+                    </ul>   
+                </div>
+                <a  href="galeria.html">Galeria</a>
+                <a class="active"  href="ankieta.html">Ankieta</a>
+           </nav>
+        </header>
+        <main id="main">
+            <form name="formularz" action="plik.php" method="POST">
+                <label>Ankieta do wypełnienia po przeczytaniu treści na stronie:</label> <br>
+                <label>Imie:</label>
+                <input id="name" type="text" name="imie"><br>
+                <label>Nazwisko:</label>
+                <input id="surname" type="text" name="nazwisko"><br>
+                <label>Mężczyzna</label>
+                <input type="radio" name="gender" value="male" >
+                <label>Kobieta</label>
+                <input type="radio" name="gender" value="female"><br>
+                <label> Wiek</label> <br>
+                <input type="checkbox" name="dziecko" value="0-18">0-18
+                <input type="checkbox" name="dorosly1" value="19-30">19-30
+                <input type="checkbox" name="dorosly2" value="30-50">30-50
+                <input type="checkbox" name="dorosly2" value="50+">50+<br>
+                <label>Ulubiony rodzaj literatury:</label>
+                <select>
+                    <option value="r">rosyjska</option>
+                    <option value="a">angielska</option>
+                    <option value="f">francuska</option>
+                </select>
+                <br>
+                <label> Ulubiona książka:</label> <br>
+                <input type="text" name="ksiazka"><br>
+                <label> Kiedy ostatnio przeczytałeś jakąś książkę?</label> <br>
+                <input id="datepicker" type="text" name="data"><br>
+                <br>
+                <label>Uwagi na temat strony:</label>
+                <br>
+                <textarea rows="7" cols="20">
+                
+                </textarea>
+                <br>
+                <br>
+                <input  type="submit" value="Submit">
+                <input  type="reset" value="Reset">
+            </form>
+        </main>
+        <footer>Autor strony: Norbert Zakrzewski; październik 2022</footer>
+    </body>
+</html>
