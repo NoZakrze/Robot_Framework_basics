@@ -1,61 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0.1 (Python 3.12.2 on win32)" generated="2024-09-07T21:38:57.510820" rpa="false" schemaversion="5">
-<suite id="s1" name="CheckBox" source="C:\Users\nozak\OneDrive\Pulpit\robotFW\TestCases\CheckBox.robot">
-<test id="s1-t1" name="Test1" line="8">
+<robot generator="Robot 7.0.1 (Python 3.12.2 on win32)" generated="2024-09-14T19:20:51.278064" rpa="false" schemaversion="5">
+<suite id="s1" name="DropDown" source="C:\Users\nozak\OneDrive\Pulpit\robotFW\Testcases\DropDown.robot">
+<test id="s1-t1" name="Test1" line="10">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-09-07T21:38:57.640714" level="INFO">Opening browser 'Firefox' to base url 'C:\Users\nozak\OneDrive\Pulpit\robotFW\app\index.html'.</msg>
+<msg time="2024-09-14T19:20:51.424075" level="INFO">Opening browser 'Firefox' to base url 'C:\Users\nozak\OneDrive\Pulpit\robotFW\app\index.html'.</msg>
 <arg>${URL}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-09-07T21:38:57.640714" elapsed="5.933439"/>
+<status status="PASS" start="2024-09-14T19:20:51.424075" elapsed="5.710759"/>
 </kw>
 <kw name="Maximize Browser Window" owner="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" start="2024-09-07T21:39:03.574153" elapsed="0.288799"/>
+<status status="PASS" start="2024-09-14T19:20:57.134834" elapsed="0.286703"/>
 </kw>
 <kw name="Set Selenium Speed" owner="SeleniumLibrary">
-<arg>2seconds</arg>
+<arg>0.5s</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" start="2024-09-07T21:39:03.862952" elapsed="0.001337"/>
+<status status="PASS" start="2024-09-14T19:20:57.422796" elapsed="0.000000"/>
 </kw>
 <kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-09-07T21:39:03.864289" level="INFO">Clicking link 'xpath:/html/body/header/nav/a[3]'.</msg>
+<msg time="2024-09-14T19:20:57.424139" level="INFO">Clicking link 'xpath:/html/body/header/nav/a[3]'.</msg>
 <arg>xpath:/html/body/header/nav/a[3]</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-07T21:39:03.864289" elapsed="6.060292"/>
+<status status="PASS" start="2024-09-14T19:20:57.423923" elapsed="1.562147"/>
 </kw>
-<kw name="Select Radio Button" owner="SeleniumLibrary">
-<msg time="2024-09-07T21:39:09.924981" level="INFO">Selecting 'female' from radio button 'gender'.</msg>
-<arg>gender</arg>
-<arg>female</arg>
-<doc>Sets the radio button group ``group_name`` to ``value``.</doc>
-<status status="PASS" start="2024-09-07T21:39:09.924981" elapsed="6.237813"/>
-</kw>
-<kw name="Select Checkbox" owner="SeleniumLibrary">
-<msg time="2024-09-07T21:39:16.163816" level="INFO">Selecting checkbox 'dorosly1'.</msg>
-<arg>dorosly1</arg>
-<doc>Selects the checkbox identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-07T21:39:16.163816" elapsed="8.233852"/>
-</kw>
-<kw name="Select Checkbox" owner="SeleniumLibrary">
-<msg time="2024-09-07T21:39:24.398185" level="INFO">Selecting checkbox 'dorosly2'.</msg>
-<arg>dorosly2</arg>
-<doc>Selects the checkbox identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-07T21:39:24.398185" elapsed="8.225931"/>
-</kw>
-<kw name="Unselect Checkbox" owner="SeleniumLibrary">
-<msg time="2024-09-07T21:39:32.624116" level="INFO">Unselecting checkbox 'dorosly1'.</msg>
-<arg>dorosly1</arg>
-<doc>Removes the selection of checkbox identified by ``locator``.</doc>
-<status status="PASS" start="2024-09-07T21:39:32.624116" elapsed="8.230054"/>
+<kw name="Select From List By Label" owner="SeleniumLibrary">
+<msg time="2024-09-14T19:20:58.986070" level="INFO">Selecting options from selection list 'xpath:/html/body/main/form/select' by label francuska.</msg>
+<arg>xpath:/html/body/main/form/select</arg>
+<arg>francuska</arg>
+<doc>Selects options from selection list ``locator`` by ``labels``.</doc>
+<status status="PASS" start="2024-09-14T19:20:58.986070" elapsed="4.265268"/>
 </kw>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-09-07T21:39:40.855276" elapsed="4.636355"/>
+<status status="PASS" start="2024-09-14T19:21:03.251338" elapsed="3.153967"/>
 </kw>
-<status status="PASS" start="2024-09-07T21:38:57.639708" elapsed="47.853275"/>
+<status status="PASS" start="2024-09-14T19:20:51.422856" elapsed="14.983559"/>
 </test>
-<status status="PASS" start="2024-09-07T21:38:57.512065" elapsed="47.981923"/>
+<status status="PASS" start="2024-09-14T19:20:51.279074" elapsed="15.130335"/>
 </suite>
 <statistics>
 <total>
@@ -64,7 +46,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="CheckBox">CheckBox</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="DropDown">DropDown</stat>
 </suite>
 </statistics>
 <errors>
